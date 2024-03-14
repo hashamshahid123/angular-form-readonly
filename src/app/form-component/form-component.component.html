@@ -1,0 +1,27 @@
+
+<div [appReadonly]="isReadOnly" (readonlyFrom)="readonlyFrom($event)" class="container">
+    <form id="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h3>Test</h3>
+        
+        <fieldset >
+            <input formControlName="name" [readonly]="isReadonlyFromDirective" placeholder="Your name" type="text" tabindex="1" required autofocus>
+        </fieldset>
+
+        <fieldset >
+            <textarea formControlName="addresse" [readonly]="isReadonlyFromDirective" placeholder="Type your message here...." tabindex="5"
+                required></textarea>
+        </fieldset>
+        <fieldset>
+            <input type="radio" [readonly]="isReadonlyFromDirective" formControlName="gender" value="male"> Male
+            <input type="radio" [readonly]="isReadonlyFromDirective" formControlName="gender" value="female"> Female
+
+        </fieldset>
+        <fieldset>
+            <ng-select [readonly]="isReadonlyFromDirective" [searchable]="false" [items]="city" bindLabel="name" bindValue="name"> </ng-select>
+        </fieldset>
+        <fieldset>
+            <button  [disabled]="isReadonlyFromDirective" name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+        </fieldset>
+
+    </form>
+</div>
